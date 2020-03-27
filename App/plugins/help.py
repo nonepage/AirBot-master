@@ -5,17 +5,11 @@ import socket
 
 @on_command('help', only_to_me=False)
 async def ipinfo(session: CommandSession):
-    await session.send('幽忆云 bot v1.0.2\n'
-                       'by 单字汪\n'
-                       '其余贡献者:\n'
-                       'nonepage\n'
-                       '\n\n'
-                        
-                       
+    await session.send('超星学习通自动签到机器人 v1.0.2\n'                     
                        '指令列表:\n'
-                       '/ip 查询IP消息\n'
-                       '/gfwtcp 被墙检测\n'
-                       '/gfwdns 查询域名DNS信息\n'
-                       '----------------------------\n'
-                       '***欢迎其他开发者加入***\n开源项目地址:https://github.com/result-bit/AirBot'
+                       '/cxa 绑定账号\n'
+                       '/cxd 删除当前QQ绑定的学习通账号\n'
+                       '/cxm 查看当前QQ绑定的信息\n'
+                       '/cxc 使用卡密充值积分\n'
+                       '/cxb 切换签到监控频率'
                        )

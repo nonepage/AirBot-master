@@ -3,7 +3,7 @@ import config
 import nonebot
 import sqlite3
 import os
-
+from App.Tools.ChaoXingCdkeyGR import *
 if __name__ == '__main__':
     nonebot.init(config)
     nonebot.load_plugins(
@@ -18,8 +18,7 @@ if __name__ == '__main__':
                 'create table users (user varchar(12) , passwd varchar(64) , points int(64) , Minterval int '
                 '(64) , qq varchar (64))')
             c.execute(
-                'create table cdkeys (cdkey varchar(12) , isUsed varchar(64) , usedQQ varchar (64) , usedTime varchar '
-                '(64))')
+                'create table cdkeys (cdkey varchar(128))')
             conn.commit()
             conn.close()
         except Exception as e:
