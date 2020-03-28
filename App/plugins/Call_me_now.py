@@ -2,12 +2,6 @@ import datetime
 from apscheduler.triggers.date import DateTrigger
 from apscheduler.triggers.cron import CronTrigger
 from nonebot import on_command, scheduler, CommandSession
-from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
-import sqlite3
-from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
-from config import database_call
-from apscheduler.schedulers.background import BackgroundScheduler
-
 
 @on_command('clock', aliases=('闹钟', '定个闹钟'), only_to_me=False)
 async def main_clock(session: CommandSession):
