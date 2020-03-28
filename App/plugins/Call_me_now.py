@@ -2,6 +2,11 @@ import datetime
 from apscheduler.triggers.date import DateTrigger
 from apscheduler.triggers.cron import CronTrigger
 from nonebot import on_command, scheduler, CommandSession
+from apscheduler.jobstores.sqlalchemy import SQLAlchemyJobStore
+import sqlite3
+from apscheduler.executors.pool import ThreadPoolExecutor, ProcessPoolExecutor
+from config import database_call
+from apscheduler.schedulers.background import BackgroundScheduler
 
 
 @on_command('clock', aliases=('闹钟', '定个闹钟'), only_to_me=False)
@@ -55,6 +60,8 @@ async def main_clock(session: CommandSession):
     time = session.get('time', prompt=r'请问您要定一个几点的日程?列如:18.18(6点18分)')
     # 制作一个“5分钟后”触发器
     time = time.split('.', 1)
+    if len(time) < 2:
+        time.append('00')
     trigger = CronTrigger(
         hour=time[0],
         minute=time[1]
